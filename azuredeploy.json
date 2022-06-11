@@ -17,6 +17,9 @@
            "relativePath": "artifacts/storage_template.json"
         },
         "parameters": {
+          "location": {
+            "value": "[resourceGroup().location]"
+          },
           "storageAccountName": {
             "value": "[variables('storageName')]"
           }
