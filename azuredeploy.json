@@ -18,7 +18,7 @@
         },
         "parameters": {
           "storageAccountName": {
-            "value": "[variables('storageNam')]"
+            "value": "[variables('storageName')]"
           }
         }
       }
