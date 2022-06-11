@@ -2,22 +2,10 @@
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-    "location": {
-      "type": "string",
-      "defaultValue": "westus2",
-      "metadata":{
-        "description": "Specify the location for the resources."
-      }
-    },
-    "storageAccountType": {
-      "type": "string",
-      "defaultValue": "Standard_LRS",
-      "metadata":{
-        "description": "Specify the storage account type."
-      }
-    }
   },
-  "variables": {},
+  "variables": {
+      "storageName": "[concat("esv", uniqueString(resourceGroup().id))]"
+  },
   "resources": [
     {
       "type": "Microsoft.Resources/deployments",
@@ -29,8 +17,8 @@
           "uri": "[concat(parameters('_artifactsLocation'),'/artifacts/storage_template.json')]"
         },
         "parameters": {
-          "storageAccountType": {
-            "value": "[parameters('storageAccountType')]"
+          "storageAccountName": {
+            "value": "[variables('storageNam')]"
           }
         }
       }
