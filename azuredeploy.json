@@ -4,7 +4,7 @@
   "parameters": {
   },
   "variables": {
-      "storageName": "[concat("esv", uniqueString(resourceGroup().id))]"
+      "storageName": "[concat('esv', uniqueString(resourceGroup().id))]"
   },
   "resources": [
     {
