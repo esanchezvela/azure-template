@@ -31,7 +31,7 @@
    "outputs": {
       "nsgId": {
          "type": "string",
-         "value": "[string(resourceId('Microsoft.Network/networkSecurityGroups', parameters('nsgName')))]"
+         "value":  "test123"
       }
    }
 }

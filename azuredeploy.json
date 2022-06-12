@@ -65,9 +65,9 @@
           "location": {
             "value": "[resourceGroup().location]"
           },
-	  "nsgId": {
+	        "nsgId": {
             "value": "[reference('nsgResource').outputs.nsgId.value]"
-	  }
+	        }
         }
       }
     }
