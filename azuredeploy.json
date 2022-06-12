@@ -4,7 +4,8 @@
   "parameters": {
   },
   "variables": {
-      "storageName": "[concat('esv', uniqueString(resourceGroup().id))]"
+      "storageName": "[concat('esv', uniqueString(resourceGroup().id))]",
+      "nsgName":     "[concat(resourceGroup().name,'-vnet-NSG-CASG')]"
   },
   "resources": [
     {
@@ -36,12 +37,35 @@
            "relativePath": "artifacts/nsg.json"
         },
         "parameters": {
-          "rgName": {
-            "value": "[resourceGroup().name]"
+          "nsgName": {
+            "value": "[variables('nsgName')]'"
           },
           "location": {
             "value": "[resourceGroup().location]"
           }
+        }
+      }
+    },
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2020-10-01",
+      "name": "vnetTemplate",
+      "dependsOn": [
+	       "resourceId('Microsoft.Resources/deployments', 'nsgResource')]"
+      ],
+      "properties": {
+        "mode": "Incremental",
+        "templateLink": {
+           "relativePath": "artifacts/vnet.json"
+        },
+        "parameters": {
+          "rgName": {
+            "value": "[concat(resourceGroup().name,'-vnet')]"
+          },
+          "location": {
+            "value": "[resourceGroup().location]"
+          },
+	  "nsgId": "[resourceId('Microsoft.Network/networkSecurityGroups', variables('nsgName'))]"
         }
       }
     }
