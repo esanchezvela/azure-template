@@ -40,7 +40,7 @@
             "value": "[resourceGroup().location]"
           },
           "nsgName": {
-            "value": "[concat(resourceGroup().name,'-vnet-NSG-CASG')]'"
+            "value": "[concat(resourceGroup().name,'-vnet-NSG-CASG')]"
           }
         }
       }
