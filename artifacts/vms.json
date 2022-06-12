@@ -11,7 +11,7 @@
         "numberOfInstances": {
             "type": "int",
             "defaultValue": 4,
-            "minValue": 2,
+            "minValue": 1,
             "maxValue": 398,
             "metadata": {
                 "description": "Number of VMs to deploy, limit 398 since there is an 800 resource limit for a single template deployment"
@@ -21,6 +21,8 @@
             "type": "string",
             "defaultValue": "Ubuntu",
             "allowedValues": [
+                "Suse",
+                "RedHat",
                 "Ubuntu",
                 "Windows"
             ],
@@ -57,6 +59,12 @@
             "defaultValue": "Standard_A1_v2",
             "metadata": {
                 "description": "description"
+            }
+        },
+        "avsetId": {
+            "type": "string",
+            "metadata": {
+                "description": "Availability SetId for cluster" 
             }
         }
     },
@@ -103,83 +111,6 @@
     },
     "resources": [
         {
-            "type": "Microsoft.Compute/availabilitySets",
-            "name": "[concat(variables('availabilitySetName'), '-', copyIndex())]",
-            "apiVersion": "2020-06-01",
-            "location": "[parameters('location')]",
-            "copy":{
-                "name": "asLoop",
-                //only 200 vms can be placed in an AS
-                "count": 2 
-            },
-            "properties": {
-                "platformFaultDomainCount": 2,
-                "platformUpdateDomainCount": 2
-            },
-            "sku": {
-                "name": "Aligned"
-            }
-        },
-        {
-            "comments": "Default Network Security Group for template",
-            "type": "Microsoft.Network/networkSecurityGroups",
-            "apiVersion": "2020-05-01",
-            "name": "[variables('networkSecurityGroupName')]",
-            "location": "[parameters('location')]",
-            "properties": {
-                "securityRules": [
-                    {
-                        "name": "[concat('default-allow-', variables('nsgOsPort')[parameters('OS')])]",
-                        "properties": {
-                            "priority": 1000,
-                            "access": "Allow",
-                            "direction": "Inbound",
-                            "destinationPortRange": "[variables('nsgOsPort')[parameters('OS')]]",
-                            "protocol": "Tcp",
-                            "sourceAddressPrefix": "*",
-                            "sourcePortRange": "*",
-                            "destinationAddressPrefix": "*"
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "type": "Microsoft.Network/virtualNetworks",
-            "name": "[variables('virtualNetworkName')]",
-            "apiVersion": "2020-05-01",
-            "location": "[parameters('location')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Network/networkSecurityGroups', variables('networkSecurityGroupName'))]"
-            ],
-            "properties": {
-                "addressSpace": {
-                    "addressPrefixes": [
-                        "[variables('addressPrefix')]"
-                    ]
-                },
-                "subnets": [
-                    {
-                        "name": "[variables('subnet1Name')]",
-                        "properties": {
-                            "addressPrefix": "[variables('subnet1Prefix')]",
-                            "networkSecurityGroup": {
-                                "id": "[resourceId('Microsoft.Network/networkSecurityGroups', variables('networkSecurityGroupName'))]"
-                            }
-                        }
-                    },                    {
-                        "name": "[variables('subnet2Name')]",
-                        "properties": {
-                            "addressPrefix": "[variables('subnet2Prefix')]",
-                            "networkSecurityGroup": {
-                                "id": "[resourceId('Microsoft.Network/networkSecurityGroups', variables('networkSecurityGroupName'))]"
-                            }
-                        }
-                    }
-                ]
-            }
-        },
-        {
             "type": "Microsoft.Network/networkInterfaces",
             "name": "[concat('nic', copyindex())]",
             "apiVersion": "2020-05-01",
@@ -220,7 +151,7 @@
             ],
             "properties": {
                 "availabilitySet": {
-                    "id": "[resourceId('Microsoft.Compute/availabilitySets', concat(variables('availabilitySetName'), '-', mod(copyIndex(),2)))]"
+                    "id": "[parameters('avsetId')]"
                 },
                 "hardwareProfile": {
                     "vmSize": "[parameters('vmSize')]"
@@ -232,9 +163,11 @@
                     "linuxConfiguration": "[if(equals(parameters('authenticationType'), 'password'), json('null'), variables('linuxConfiguration'))]"
                 },
                 "storageProfile": {
-                    "imageReference": "[variables('imageReference')[parameters('OS')]]",
-                    "osDisk": {
-                        "createOption": "FromImage"
+                    "imageReference": {
+                        "publisher": "parameters('publisher')",
+                        "offer"    : "parameters('offer')",
+                        "sku"      : "parameters('sku')",
+                        "version"  : "parameters('version')"
                     }
                 },
                 "networkProfile": {
