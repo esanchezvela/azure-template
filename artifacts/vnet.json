@@ -74,14 +74,18 @@
             "name": "[parameters('subnet1Name')]",
             "properties": {
               "addressPrefix": "[parameters('subnet1Prefix')]",
-	      "networkSecurityGroup": "[parameters('nsgId')]"
+	      "networkSecurityGroup": {
+		     "id":  "[parameters('nsgId')]"
+              }
             }
           },
           {
             "name": "[parameters('subnet2Name')]",
             "properties": {
               "addressPrefix": "[parameters('subnet2Prefix')]",
-	            "networkSecurityGroup": "[parameters('nsgId')]"
+	      "networkSecurityGroup": {
+		     "id":  "[parameters('nsgId')]"
+              }
             }
           }
         ]
