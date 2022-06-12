@@ -27,11 +27,5 @@
           "name": "[parameters('nsgName')]",
           "location": "[parameters('location')]"
         }
-   ],
-   "outputs": {
-      "nsgId": {
-         "type": "string",
-         "value":  "test123"
-      }
-   }
+   ]
 }
