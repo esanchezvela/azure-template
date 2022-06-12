@@ -18,7 +18,7 @@
     },
     "variables": {
         "nsgName": "[concat(parameters('rgName'),'-vnet-NSG-CASG')]"
-    }	,
+    },
     "resources": [
         {
           "type": "Microsoft.Network/networkSecurityGroups",
