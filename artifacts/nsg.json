@@ -16,14 +16,16 @@
         }
       }
     },
-    "variables": {},
+    "variables": {
+        "nsgName": "[concat(parameters(rgName),'-vnet-NSG-CASG')]"
+    }	,
     "resources": [
         {
           "type": "Microsoft.Network/networkSecurityGroups",
           "apiVersion": "2021-08-01",
           "tags": {},
 	  "properties": {},
-          "name": "[concat(parameters(rgName),'-vnet-NSG-CASG')]",
+          "name": "[variables('nsgName')]",
           "location": "[parameters('location')]"
         }
    ]
