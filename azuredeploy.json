@@ -51,7 +51,7 @@
       "apiVersion": "2020-10-01",
       "name": "vnetTemplate",
       "dependsOn": [
-	       "resourceId('Microsoft.Resources/deployments', 'nsgResource')]"
+	       "[resourceId('Microsoft.Resources/deployments', 'nsgResource')]"
       ],
       "properties": {
         "mode": "Incremental",
