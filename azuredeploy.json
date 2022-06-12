@@ -65,7 +65,9 @@
           "location": {
             "value": "[resourceGroup().location]"
           },
-	  "nsgId": "[resourceId('Microsoft.Network/networkSecurityGroups', variables('nsgName'))]"
+	  "nsgId": {
+            "value": "[reference('nsgResource').outputs.nsgId.value]"
+	  }
         }
       }
     }
