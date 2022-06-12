@@ -1,0 +1,30 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "location": {
+        "type": "string",
+        "defaultValue": "eastus",
+        "metadata":{
+          "description": "Specify the location for the resources."
+        }
+      },
+      "rgNeme": {
+        "type": "string",
+        "metadata":{
+          "description": "Resource Group Name."
+        }
+      }
+    },
+    "variables": {},
+    "resources": [
+        {
+          "type": "Microsoft.Network/networkSecurityGroups",
+          "apiVersion": "2021-08-01",
+          "tags": {},
+	  "properties": {},
+          "name": "[concat(parameters(rgName),'-vnet-NSG-CASG')]",
+          "location": "[parameters('location')]"
+        }
+   ]
+}
