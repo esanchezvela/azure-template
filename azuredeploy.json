@@ -4,8 +4,7 @@
   "parameters": {
   },
   "variables": {
-      "storageName": "[concat('esv', uniqueString(resourceGroup().id))]",
-      "nsgName":     "[concat('susecluster','-vnet-NSG-CASG')]"
+      "storageName": "[concat('esv', uniqueString(resourceGroup().id))]"
   },
   "resources": [
     {
@@ -37,11 +36,11 @@
            "relativePath": "artifacts/nsg.json"
         },
         "parameters": {
-          "nsgName": {
-            "value": "[variables('nsgName')]'"
-          },
           "location": {
             "value": "[resourceGroup().location]"
+          },
+          "nsgName": {
+            "value": "[concat(resourceGroup().name,'-vnet-NSG-CASG')]'"
           }
         }
       }
@@ -59,7 +58,7 @@
            "relativePath": "artifacts/vnet.json"
         },
         "parameters": {
-          "rgName": {
+          "vnetname": {
             "value": "[concat(resourceGroup().name,'-vnet')]"
           },
           "location": {
