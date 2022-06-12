@@ -53,7 +53,7 @@
     "nsgId":  {
       "type": "string",
       "metadata": {
-	"description": "NSG id for the corresponding NSG"
+	    "description": "NSG id for the corresponding NSG"
       }
     }
   },
@@ -81,7 +81,7 @@
             "name": "[parameters('subnet2Name')]",
             "properties": {
               "addressPrefix": "[parameters('subnet2Prefix')]",
-	      "networkSecurityGroup": "[parameters('nsgId')]"
+	            "networkSecurityGroup": "[parameters('nsgId')]"
             }
           }
         ]
