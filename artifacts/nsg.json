@@ -27,5 +27,11 @@
           "name": "[parameters('nsgName')]",
           "location": "[parameters('location')]"
         }
-   ]
+   ],
+   "outputs": {
+      "nsgId": {
+         "type": "string",
+         "value": "[string(resourceId('Microsoft.Network/networkSecurityGroups', parameters('nsgName')))]"
+      }
+   }
 }
