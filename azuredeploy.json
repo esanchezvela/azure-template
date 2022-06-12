@@ -5,7 +5,7 @@
   },
   "variables": {
       "storageName": "[concat('esv', uniqueString(resourceGroup().id))]",
-      "nsgName":     "[concat(resourceGroup().name,'-vnet-NSG-CASG')]"
+      "nsgName":     "[concat('susecluster','-vnet-NSG-CASG')]"
   },
   "resources": [
     {
