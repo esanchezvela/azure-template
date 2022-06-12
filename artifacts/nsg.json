@@ -17,7 +17,7 @@
       }
     },
     "variables": {
-        "nsgName": "[concat(parameters(rgName),'-vnet-NSG-CASG')]"
+        "nsgName": "[concat(parameters('rgName'),'-vnet-NSG-CASG')]"
     }	,
     "resources": [
         {
