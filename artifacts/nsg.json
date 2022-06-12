@@ -9,7 +9,7 @@
           "description": "Specify the location for the resources."
         }
       },
-      "rgNeme": {
+      "rgName": {
         "type": "string",
         "metadata":{
           "description": "Resource Group Name."
