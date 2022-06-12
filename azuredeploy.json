@@ -69,6 +69,25 @@
 	        }
         }
       }
+    },
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2020-10-01",
+      "name": "nsgResource",
+      "properties": {
+        "mode": "Incremental",
+        "templateLink": {
+           "relativePath": "artifacts/availabilityset.json"
+        },
+        "parameters": {
+          "location": {
+            "value": "[resourceGroup().location]"
+          },
+          "availabilitySetName": {
+            "value": "[concat(resourceGroup().name,'-avset')]"
+          }
+        }
+      }
     }
   ]
 }

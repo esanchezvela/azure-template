@@ -22,7 +22,7 @@
         {
             "type": "Microsoft.Compute/availabilitySets",
             "name": "[parameters('availabilitySetName')]",
-            "apiVersion": "2021-11-01",
+            "apiVersion": "2017-03-30",
             "location": "[parameters('location')]",
             "copy":{
                 "name": "asLoop",

@@ -10,24 +10,35 @@
         },
         "numberOfInstances": {
             "type": "int",
-            "defaultValue": 4,
+            "defaultValue": 1,
             "minValue": 1,
             "maxValue": 398,
             "metadata": {
                 "description": "Number of VMs to deploy, limit 398 since there is an 800 resource limit for a single template deployment"
             }
         },
-        "OS": {
+        "publisher": {
             "type": "string",
-            "defaultValue": "Ubuntu",
-            "allowedValues": [
-                "Suse",
-                "RedHat",
-                "Ubuntu",
-                "Windows"
-            ],
             "metadata": {
-                "description": "OS Platform for the VM"
+                "description": "Image Publisher."
+            }
+        },
+        "offer": {
+            "type": "string",
+            "metadata": {
+                "description": "Image offer."
+            }
+        },
+        "sku"      : {
+            "type": "string",
+            "metadata": {
+                "description": "Image sku."
+            }
+        },
+        "version"  : {
+            "type": "string",
+            "metadata": {
+                "description": "Image Version."
             }
         },
         "location": {
@@ -56,7 +67,7 @@
         },
         "vmSize": {
             "type": "string",
-            "defaultValue": "Standard_A1_v2",
+            "defaultValue": "Standard_D2s_v3",
             "metadata": {
                 "description": "description"
             }
