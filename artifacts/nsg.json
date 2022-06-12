@@ -34,4 +34,5 @@
          "value": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('nsgName'))]"
       }
    }
-   
+}
+
