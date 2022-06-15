@@ -175,7 +175,7 @@
           "numberOfInstances": {
             "value": 1
           },
-          "mypublisher": {
+          "publisher": {
             "value": "[parameters('publisher')]"
           },
           "offer": {
@@ -204,6 +204,9 @@
           },
           "avsetId": {
             "value": "[reference('avsetResource').outputs.avsetId.value]"
+          },
+          "vnetid": {
+            "value": "[reference('vnetTemplate').outputs.vnetid.value]"
           }
         }
       }

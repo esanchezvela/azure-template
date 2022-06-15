@@ -17,7 +17,7 @@
                 "description": "Number of VMs to deploy, limit 398 since there is an 800 resource limit for a single template deployment"
             }
         },
-        "mypublisher": {
+        "publisher": {
             "type": "string",
             "metadata": {
                 "description": "Image Publisher."
@@ -77,6 +77,12 @@
             "metadata": {
                 "description": "Availability SetId for cluster" 
             }
+        },
+        "vnetid": {
+            "type": "string",
+            "metadata": {
+                "description": "VNETID of managing VM"
+            }
         }
     },
     "variables": {
@@ -90,7 +96,9 @@
                     }
                 ]
             }
-        }
+        },
+        "subnet1Ref": "[concat(parameters('vnetid'),'/subnets/Subnet1",
+        "subnet2Ref": "[concat(parameters('vnetid'),'/subnets/Subnet2"
     },
     "resources": [
         {
@@ -143,7 +151,7 @@
                 },
                 "storageProfile": {
                     "imageReference": {
-                        "publisher": "[parameters('mypublisher')]",
+                        "publisher": "[parameters('publisher')]",
                         "offer"    : "[parameters('offer')]",
                         "sku"      : "[parameters('sku')]",
                         "version"  : "[parameters('version')]"

@@ -91,5 +91,11 @@
         ]
       }
     }
-  ]
+  ],
+  "outputs": {
+    "vnetid": {
+      "type": "string",
+      "value": "[resourceId('Microsoft.Network/virtualNetworks', parameters('vnetName'))]"
+   }    
+  }
 }
