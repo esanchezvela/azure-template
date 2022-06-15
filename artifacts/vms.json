@@ -97,8 +97,8 @@
                 ]
             }
         },
-        "subnet1Ref": "[concat(parameters('vnetid'),'/subnets/Subnet1)]",
-        "subnet2Ref": "[concat(parameters('vnetid'),'/subnets/Subnet2)]"
+        "subnet1Ref": "[concat(parameters('vnetid'),'/subnets/Subnet1')]",
+        "subnet2Ref": "[concat(parameters('vnetid'),'/subnets/Subnet2')]"
     },
     "resources": [
         {
