@@ -17,7 +17,7 @@
                 "description": "Number of VMs to deploy, limit 398 since there is an 800 resource limit for a single template deployment"
             }
         },
-        "publisher": {
+        "mypublisher": {
             "type": "string",
             "metadata": {
                 "description": "Image Publisher."
@@ -143,7 +143,7 @@
                 },
                 "storageProfile": {
                     "imageReference": {
-                        "publisher": "parameters('publisher')",
+                        "publisher": "parameters('mypublisher')",
                         "offer"    : "parameters('offer')",
                         "sku"      : "parameters('sku')",
                         "version"  : "parameters('version')"

@@ -175,7 +175,7 @@
           "numberOfInstances": {
             "value": 1
           },
-          "publisher": {
+          "mypublisher": {
             "value": "[parameters('publisher')]"
           },
           "offer": {
