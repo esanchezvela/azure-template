@@ -3,7 +3,7 @@
 	  "value": "azureuser"
   },
   "publisher": {
-	  "value": "RedHat"
+	  "value": "redhat"
   },
   "offer": {
 	  "value": "RHEL"

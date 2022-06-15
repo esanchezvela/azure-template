@@ -2,77 +2,77 @@
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.1",
   "parameters": {
-  "numberOfInstances": {
-      "type": "int",
-      "defaultValue": 1,
-      "minValue": 1,
-      "maxValue": 398,
-      "metadata": {
-          "description": "Number of VMs to deploy, limit 398 since there is an 800 resource limit for a single template deployment"
-      }
-  },
-  "publisher": {
+    "numberOfInstances": {
+        "type": "int",
+        "defaultValue": 1,
+        "minValue": 1,
+        "maxValue": 398,
+        "metadata": {
+            "description": "Number of VMs to deploy, limit 398 since there is an 800 resource limit for a single template deployment"
+        }
+    },
+    "publisher": {
+        "type": "string",
+        "metadata": {
+            "description": "Image Publisher."
+        }
+    },
+    "offer": {
+        "type": "string",
+        "metadata": {
+            "description": "Image offer."
+        }
+    },
+    "sku"      : {
+        "type": "string",
+        "metadata": {
+            "description": "Image sku."
+        }
+    },
+    "version"  : {
+        "type": "string",
+        "defaultValue": "latest",
+        "metadata": {
+            "description": "Image Version."
+        }
+    },
+    "location": {
+        "type": "string",
+        "metadata": {
+            "description": "Location for all resources."
+        }
+    },
+    "authenticationType": {
+        "type": "string",
+        "defaultValue": "sshPublicKey",
+        "allowedValues": [
+            "sshPublicKey",
+            "password"
+        ],
+        "metadata": {
+            "description": "Type of authentication to use on the Virtual Machine. SSH key is recommended."
+        }
+    },
+    "adminUsername": {
       "type": "string",
       "metadata": {
-          "description": "Image Publisher."
+          "description": "Admin username for VM"
       }
-  },
-  "offer": {
-      "type": "string",
-      "metadata": {
-          "description": "Image offer."
-      }
-  },
-  "sku"      : {
-      "type": "string",
-      "metadata": {
-          "description": "Image sku."
-      }
-  },
-  "version"  : {
-      "type": "string",
-      "defaultValue": "latest",
-      "metadata": {
-          "description": "Image Version."
-      }
-  },
-  "location": {
-      "type": "string",
-      "metadata": {
-          "description": "Location for all resources."
-      }
-  },
-  "authenticationType": {
-      "type": "string",
-      "defaultValue": "sshPublicKey",
-      "allowedValues": [
-          "sshPublicKey",
-          "password"
-      ],
-      "metadata": {
-          "description": "Type of authentication to use on the Virtual Machine. SSH key is recommended."
-      }
-  },
-  "adminUsername": {
-    "type": "string",
-    "metadata": {
-        "description": "Admin username for VM"
+    },
+    "adminPasswordOrKey": {
+        "type": "securestring",
+        "metadata": {
+            "description": "SSH Key or password for the Virtual Machine. SSH key is recommended."
+        }
+    },
+    "vmSize": {
+        "type": "string",
+        "defaultValue": "Standard_D2s_v3",
+        "metadata": {
+            "description": "description"
+        }
     }
   },
-  "adminPasswordOrKey": {
-      "type": "securestring",
-      "metadata": {
-          "description": "SSH Key or password for the Virtual Machine. SSH key is recommended."
-      }
-  },
-  "vmSize": {
-      "type": "string",
-      "defaultValue": "Standard_D2s_v3",
-      "metadata": {
-          "description": "description"
-      }
-  }
-},
   "variables": {
       "storageName": "[concat('esv', uniqueString(resourceGroup().id))]"
   },
