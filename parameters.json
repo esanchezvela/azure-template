@@ -1,0 +1,20 @@
+{
+  "adminUsername": {
+	  "value": "azureuser"
+  },
+  "publisher": {
+	  "value": "RedHat"
+  },
+  "offer": {
+	  "value": "rhel"
+  },
+  "sku": {
+	  "value": "8-lvm-gen2"
+  },
+  "version": {
+	  "value": "latest"
+  },
+  "location": {
+	  "value": "canadacentral"
+  }
+}
