@@ -2,7 +2,77 @@
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.1",
   "parameters": {
+  "numberOfInstances": {
+      "type": "int",
+      "defaultValue": 1,
+      "minValue": 1,
+      "maxValue": 398,
+      "metadata": {
+          "description": "Number of VMs to deploy, limit 398 since there is an 800 resource limit for a single template deployment"
+      }
   },
+  "publisher": {
+      "type": "string",
+      "metadata": {
+          "description": "Image Publisher."
+      }
+  },
+  "offer": {
+      "type": "string",
+      "metadata": {
+          "description": "Image offer."
+      }
+  },
+  "sku"      : {
+      "type": "string",
+      "metadata": {
+          "description": "Image sku."
+      }
+  },
+  "version"  : {
+      "type": "string",
+      "defaultValue": "latest",
+      "metadata": {
+          "description": "Image Version."
+      }
+  },
+  "location": {
+      "type": "string",
+      "metadata": {
+          "description": "Location for all resources."
+      }
+  },
+  "authenticationType": {
+      "type": "string",
+      "defaultValue": "sshPublicKey",
+      "allowedValues": [
+          "sshPublicKey",
+          "password"
+      ],
+      "metadata": {
+          "description": "Type of authentication to use on the Virtual Machine. SSH key is recommended."
+      }
+  },
+  "adminUsername": {
+    "type": "string",
+    "metadata": {
+        "description": "Admin username for VM"
+    }
+  },
+  "adminPasswordOrKey": {
+      "type": "securestring",
+      "metadata": {
+          "description": "SSH Key or password for the Virtual Machine. SSH key is recommended."
+      }
+  },
+  "vmSize": {
+      "type": "string",
+      "defaultValue": "Standard_D2s_v3",
+      "metadata": {
+          "description": "description"
+      }
+  }
+},
   "variables": {
       "storageName": "[concat('esv', uniqueString(resourceGroup().id))]"
   },
@@ -85,6 +155,52 @@
           },
           "availabilitySetName": {
             "value": "[concat(resourceGroup().name,'-avset')]"
+          }
+        }
+      }
+    },
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2020-10-01",
+      "name": "vmResource",
+      "properties": {
+        "mode": "Incremental",
+        "templateLink": {
+           "relativePath": "artifacts/vms.json"
+        },
+        "parameters": {
+          "numberOfInstances": {
+            "value": "1"
+          },
+          "publisher": {
+            "value": "[parameters('publisher')]"
+          },
+          "offer": {
+            "value": "[parameters('offer')]"
+          },
+          "sku": {
+            "value": "[parameters('sku')]"
+          },
+          "version": {
+            "value": "[parameters('version')]"
+          },
+          "location": {
+            "value": "[resourceGroup().location]"
+          },
+          "authenticationType": {
+            "value": "sshPublicKey"
+          },
+          "adminUsername": {
+            "value": "[parameters('adminUsername')]"
+          }
+          "adminPasswordOrKey": {
+             "value": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCvKcwKLiV1FdCU5XJiWA+nuaBes/hvklOHZ+J2N+YEouX+wbsTcl8Yd/ugbOiPYrc6Llrk13o/xyH1r76AVfI3Kh6esGKhBNgSyWVjq1v72jTOGPSkUitx7NFAQQYOKCzWfEtMNFlhd6nIkH9jyhQT6a/hVazD3obyCAdFpSATVOqUozMSCySSJjHxJxu48dc+uZ+Ls2w0NMJSKGShjlabW6Wlil7Q7RfEixzkzA9dRA4TEnkS4ZrL+NTU9NWogGmIb4kYz32gSr5GyfXRH69/uShfOJOXIm9ci5/5NJ7HJPrPH9aQq+AqAl6lqYkt2NqCrzezruNm4qXWnL+tbHQtnEnWkgVTUBTN4/5Mo9js8ZJ7kPBrE4yw/NY6PER/fdteFFZZDuMB6AEt+ZY4vvBwMjMbPR9nYPjKQJccG2lLiIOz5kMy8fgiU2NdpepfHsPxrUF7MHG4E0uUWrBMJMIFEoKCHttYnmKzm/xdtvUgFn0AZ2ckPUlOrxbeJWGQ1ZU="
+         },
+          "vmSize": {
+            "value": "Standard_D2s_v4"
+          },
+          "avsetId": {
+            "value": "[reference('avsetResource').outputs.avsetId.value]"
           }
         }
       }

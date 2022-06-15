@@ -83,8 +83,8 @@
             "name": "[parameters('subnet2Name')]",
             "properties": {
               "addressPrefix": "[parameters('subnet2Prefix')]",
-	      "networkSecurityGroup": {
-		     "id":  "[parameters('nsgId')]"
+	            "networkSecurityGroup": {
+		            "id":  "[parameters('nsgId')]"
               }
             }
           }
