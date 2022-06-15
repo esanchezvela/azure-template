@@ -126,9 +126,8 @@
                 "count": "[parameters('numberOfInstances')]"
             },
             "dependsOn": [
-                "[resourceId('Microsoft.Network/networkInterfaces', concat('nic', copyIndex()))]",
-                "asLoop"
-            ],
+                "[resourceId('Microsoft.Network/networkInterfaces', concat('nic', copyIndex()))]"
+             ],
             "properties": {
                 "availabilitySet": {
                     "id": "[parameters('avsetId')]"

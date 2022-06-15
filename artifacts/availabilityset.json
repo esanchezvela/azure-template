@@ -24,10 +24,6 @@
             "name": "[parameters('availabilitySetName')]",
             "apiVersion": "2017-03-30",
             "location": "[parameters('location')]",
-            "copy":{
-                "name": "asLoop",
-                "count": 1
-            },
             "properties": {
                 "platformFaultDomainCount": 2,
                 "platformUpdateDomainCount": 2
