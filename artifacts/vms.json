@@ -143,10 +143,10 @@
                 },
                 "storageProfile": {
                     "imageReference": {
-                        "publisher": "parameters('mypublisher')",
-                        "offer"    : "parameters('offer')",
-                        "sku"      : "parameters('sku')",
-                        "version"  : "parameters('version')"
+                        "publisher": "[parameters('mypublisher')]",
+                        "offer"    : "[parameters('offer')]",
+                        "sku"      : "[parameters('sku')]",
+                        "version"  : "[parameters('version')]"
                     }
                 },
                 "networkProfile": {
