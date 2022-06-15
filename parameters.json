@@ -6,13 +6,13 @@
 	  "value": "RedHat"
   },
   "offer": {
-	  "value": "rhel"
+	  "value": "RHEL"
   },
   "sku": {
 	  "value": "8-lvm-gen2"
   },
   "version": {
-	  "value": "latest"
+	  "value": "8.6.2022051814"
   },
   "location": {
 	  "value": "canadacentral"
