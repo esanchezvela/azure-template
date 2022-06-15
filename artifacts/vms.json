@@ -147,8 +147,7 @@
                     "computerName": "[concat('vm', copyIndex())]",
                     "adminUsername": "[parameters('adminUsername')]",
                     "adminPassword": "[parameters('adminPasswordOrKey')]",
-                    "linuxConfiguration": "[json('null')]"
-//                    "linuxConfiguration": "[if(equals(parameters('authenticationType'), 'password'), json('null'), variables('linuxConfiguration'))]"
+                    "linuxConfiguration": "[if(equals(parameters('authenticationType'), 'password'), json('null'), variables('linuxConfiguration'))]"
                 },
                 "storageProfile": {
                     "imageReference": {

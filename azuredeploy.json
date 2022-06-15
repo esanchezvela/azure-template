@@ -173,7 +173,7 @@
         },
         "parameters": {
           "numberOfInstances": {
-            "value": 1
+            "value": "[parameters('numberOfInstances')]"
           },
           "publisher": {
             "value": "[parameters('publisher')]"
