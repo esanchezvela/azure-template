@@ -87,7 +87,6 @@
     },
     "variables": {
         "linuxConfiguration": {
-            "disablePasswordAuthentication": true,
             "ssh": {
                 "publicKeys": [
                     {
