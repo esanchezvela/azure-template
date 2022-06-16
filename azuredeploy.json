@@ -61,7 +61,7 @@
     },
     "adminPasswordOrKey": {
         "type": "string",
-	"defaultValue": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDLeDrt4NMLfgPQ+Ym56ASevDXlEJbMXbFT/h/absh7YYRwOUlNIC79dr00C2bpoMPDY2QWdY95MAvEbhN30RAQ0Lwj3i3Gqj/QszUhQdOcSvapHciMfmDbRk5plMVZoeSgWNIlD2mj7T3yWW6dv5+///VG2b6sDKzNtTPg6Bunr+UJ4vUjkVoNE1GjUCnzI8BVnfj8jOlq5RCoy92ihUyFhHMFFR7OLuW854ZjjjYGuXo4RIcsao9AftiYbTH5SWEDJvB9OViZCQhBqhclqixHkq1th4uoKxFmMMnmgYzyTEiKTnkbF9S9Omo7QMZuO6QBH9gEX3Fjfy0NIu/lbOFyVqc81lZedH1WBhveOeGBDHJxgbB1N+kfyTlcL0lmo5c8nksUHVeaqywuJnR/LtFBMINu8exzDyEmCJbB7G6l6iBxczSiu9Y/68YkA6Zx8+J3nu4C32bSh+VYX7/kvy10NAezlcsqtAq15nwdK94itMAYgBE5IoQ5T0Q8Pu1Mp1FTM+YClxG81PmtpbRlK1DVM9B2jdw6QMLWpk5L1wF4w46ekcnVmA2UHzlJ0MLGFMCAtTxILZe1AC1KDuNGmfjT1c5YsGZggXHwG2Vaqq6ovtwxTWDG55wT/7dZaR0eQVsZkx5pjsJ6NaKJLxvbAvvvIz6Bj2b8ijMT/rfh7hO0Lw== esv@DESKTOP-E5DMUH1",
+	"defaultValue": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDIHu7/EBdIsNlIyCkSi/uOOy6psTVUUpRLp64OzMLdrV7h81MZknM4vZ3KKBuBWjZO4oIdbWx4fs65kAdufGwpiToKHajL24Ws+6Qokx1nDkm4NMd/g1eMT90kFoglE/duH1XBWP4WJ9TAK4hgLBVOSduhWPLnz1K6QOJv4GVvjrV63w9f7HOFvCfY18h/Hv7nztrY1yGA+FKYH7Wh0UEoKhQOgWvu6oPYkvSFefLsGgK3Hnzzr9Vt5+Z2kbXvCwtUhV/8xEDzJ5rvWO2jT78MQ3W/CKGp88mCkGoLg/kwwk1ilL2cyJn2+SttSg0ND21BYuMhLgrX7d8igXUFHc53 esv@DESKTOP-E5DMUH1",
         "metadata": {
             "description": "SSH Key or password for the Virtual Machine. SSH key is recommended."
         }
