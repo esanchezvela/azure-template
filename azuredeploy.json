@@ -60,7 +60,8 @@
       }
     },
     "adminPasswordOrKey": {
-        "type": "securestring",
+        "type": "string",
+	"defaultValue": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDGNbHdCLq4n6QIqQtydO3AIo0KhWihRl+3ms3pYkIGyB4fLRG8wH8lMy5P1LflzMAa++3d8dMVqyeu1lP2gWgc5XX8XevGLGpYXGccPBZ2DnY7t20S2EE0vSR/bkI5TALXX8uPDNzLef+5g4OOe39lf6DB6GYuOpdY8IPnp9vWCHax5wCBuZWYH/yp0F84kssxrh7hehKlIexZxJtguRFWypKh38/jEiTz5GiMka2124+S4TbaS/U+oF9N5jPjgCxm4zPV9EQwvmoMS/sHOCix9E7vBCWRSLTcfz0mcpWqX9DPwzecKjJ5bdQe+ea2DYXmuVXVvbUGG/LS20FXSPDFlUDhzcdQfYjTzxhAUO/1WlIBMIonJ1Up/ENNwOXuh62jnrI4ScYYVY2eGqIYEEv9Se/LGXVwbOUq9jdOgQiVL5D5ld6t3ZqXG/4AhwoZHcrZ0oK/wXum761SX6aPMjRoksPAiaCxeDDLLehwTYDQcuHzWrZdRjb3gt0rGytut3DaZbno9/cGne3BhPdXVeFdGzcZB7+plibeijAnpXLrxHmHW+NXQKaCQhWioSc0hoRCejw8Q3okMtDccVNRyTZLUnjjFTNKS+dlXLY0PN9/MXZHZAWDlX6FcQnULT/RWCibWqeAQP03/hUxhAdemSdC1XXT93esyfxpHH5Q4pxKDQ== azureuser@template.history",
         "metadata": {
             "description": "SSH Key or password for the Virtual Machine. SSH key is recommended."
         }
