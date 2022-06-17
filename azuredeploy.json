@@ -169,7 +169,7 @@
       "properties": {
         "mode": "Incremental",
 	"debugSetting": {
-           "detailLevel": "All"
+           "detailLevel": "requestContent, responseContent"
         },
         "templateLink": {
            "relativePath": "artifacts/vms.json"
