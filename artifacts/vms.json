@@ -60,7 +60,7 @@
             }
         },
         "adminPasswordOrKey": {
-            "type": "string",
+            "type": "securestring",
             "metadata": {
                 "description": "SSH Key or password for the Virtual Machine. SSH key is recommended."
             }
@@ -91,8 +91,8 @@
                 "publicKeys": [
                     {
                         "path": "[concat('/home/', parameters('adminUsername'), '/.ssh/authorized_keys')]",
-                        "keyData": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDIHu7/EBdIsNlIyCkSi/uOOy6psTVUUpRLp64OzMLdrV7h81MZknM4vZ3KKBuBWjZO4oIdbWx4fs65kAdufGwpiToKHajL24Ws+6Qokx1nDkm4NMd/g1eMT90kFoglE/duH1XBWP4WJ9TAK4hgLBVOSduhWPLnz1K6QOJv4GVvjrV63w9f7HOFvCfY18h/Hv7nztrY1yGA+FKYH7Wh0UEoKhQOgWvu6oPYkvSFefLsGgK3Hnzzr9Vt5+Z2kbXvCwtUhV/8xEDzJ5rvWO2jT78MQ3W/CKGp88mCkGoLg/kwwk1ilL2cyJn2+SttSg0ND21BYuMhLgrX7d8igXUFHc53 esv@DESKTOP-E5DMUH1\n"
-                    }
+                        "keyData": "[parameters()]"
+		    }
                 ]
             }
         },
@@ -145,7 +145,7 @@
                 "osProfile": {
                     "computerName": "[concat('vm', copyIndex())]",
                     "adminUsername": "[parameters('adminUsername')]",
-                    "adminPassword":      "[if(equals(parameters('authenticationType'), 'password'), variables('linuxConfiguration'), json('null'))]",
+                    "adminPassword":      "[if(equals(parameters('authenticationType'), 'password'), parameters('adminPasswordOrKey'), json('null'))]",
                     "linuxConfiguration": "[if(equals(parameters('authenticationType'), 'password'), json('null'), variables('linuxConfiguration'))]"
                 },
                 "storageProfile": {

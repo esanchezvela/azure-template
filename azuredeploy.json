@@ -60,8 +60,7 @@
       }
     },
     "adminPasswordOrKey": {
-        "type": "string",
-	"defaultValue": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDIHu7/EBdIsNlIyCkSi/uOOy6psTVUUpRLp64OzMLdrV7h81MZknM4vZ3KKBuBWjZO4oIdbWx4fs65kAdufGwpiToKHajL24Ws+6Qokx1nDkm4NMd/g1eMT90kFoglE/duH1XBWP4WJ9TAK4hgLBVOSduhWPLnz1K6QOJv4GVvjrV63w9f7HOFvCfY18h/Hv7nztrY1yGA+FKYH7Wh0UEoKhQOgWvu6oPYkvSFefLsGgK3Hnzzr9Vt5+Z2kbXvCwtUhV/8xEDzJ5rvWO2jT78MQ3W/CKGp88mCkGoLg/kwwk1ilL2cyJn2+SttSg0ND21BYuMhLgrX7d8igXUFHc53 esv@DESKTOP-E5DMUH1\n",
+        "type": "securestring",
         "metadata": {
             "description": "SSH Key or password for the Virtual Machine. SSH key is recommended."
         }
