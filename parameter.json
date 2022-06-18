@@ -1,6 +1,12 @@
 {
   "adminPasswordOrKey": {
-	  "value": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDaI/jtZLeaA12IKx2FGPDg+M+g51r3ZVlZ3yY1Q9gomCudP5JdZpQbtkowJsOoNHp6ES9VxCrsKnnSJ6W34wxyG6ltS0isLjuG5xJ2cjZmbzZtbia1ULfWhvuaCG3YspLMMhZaPQYG91hDf8S9OVDvJQeprV+rMigIeHUOK0grc8ElG4Xwn+XZFz5fY9gTowSfbINUYjDMzk+tPbcFfE1neUOYQE/MMT15IhynigWub7flK/Xw32CWlnnXSKc1L+jSMy7OjBvokXX2S7Q938OrcMf9ndkPhuI4Z6Xnn8L4g+uyOj+5MBVmlU7exp+/SdEA8SNSV8tSafpkaoiFVK69 esv@DESKTOP-E5DMUH1\n"
+    "reference": {
+       "keyVault": {
+          "id": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.compute/vm-simple-windows/azuredeploy.json"
+       },
+       "secretName": "publickey"
+
+    }
   }
 }
 
