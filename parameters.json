@@ -3,16 +3,16 @@
 	  "value": "azureuser"
   },
   "publisher": {
-	  "value": "redhat"
+	  "value": "suse"
   },
   "offer": {
-	  "value": "RHEL"
+	  "value": "sles-sap-15-sp3"
   },
   "sku": {
-	  "value": "8-lvm-gen2"
+	  "value": "gen2"
   },
   "version": {
-	  "value": "8.6.2022051814"
+	  "value": "latest"
   },
   "numberOfInstances": {
 	  "value": 2
