@@ -60,7 +60,7 @@
       }
     },
     "adminPasswordOrKey": {
-        "type": "secureString",
+        "type": "string",
         "metadata": {
             "description": "SSH Key or password for the Virtual Machine. SSH key is recommended."
         }
@@ -118,6 +118,31 @@
     {
       "type": "Microsoft.Resources/deployments",
       "apiVersion": "2020-10-01",
+      "name": "shareddisk",
+      "properties": {
+        "mode": "Incremental",
+        "templateLink": {
+           "relativePath": "artifacts/disks.json"
+        },
+        "parameters": {
+           "location": {
+              "value": "[resourceGroup().location]"
+           },
+           "dataDiskName": {
+              "value": "shareddisk"
+           },
+           "dataDiskSizeGB": {
+              "value": 32
+           },
+           "maxShares": {
+              "value": 2
+           }
+        }
+      }
+    },
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2020-10-01",
       "name": "vnetTemplate",
       "dependsOn": [
 	       "[resourceId('Microsoft.Resources/deployments', 'nsgResource')]"
@@ -168,10 +193,7 @@
      ],
       "properties": {
         "mode": "Incremental",
-	"debugSetting": {
-           "detailLevel": "requestContent, responseContent"
-        },
-        "templateLink": {
+	      "templateLink": {
            "relativePath": "artifacts/vms.json"
         },
         "parameters": {
@@ -200,7 +222,7 @@
             "value": "[parameters('adminUsername')]"
           },
           "adminPasswordOrKey": {
-             "value": "[parameters('adminPasswordOrKey')]"
+             "value": "parameters['adminPasswordOrKey']"
           },
           "vmSize": {
             "value": "Standard_D2s_v4"

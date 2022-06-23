@@ -1,93 +1,45 @@
-{
-  "type": "Microsoft.Compute/disks",
-  "apiVersion": "2022-03-02",
-  "name": "string",
-  "location": "string",
-  "tags": {
-    "tagName1": "tagValue1",
-    "tagName2": "tagValue2"
-  },
-  "sku": {
-    "name": "string"
-  },
-  "extendedLocation": {
-    "name": "string",
-    "type": "EdgeZone"
-  },
-  "properties": {
-    "burstingEnabled": "bool",
-    "completionPercent": "int",
-    "creationData": {
-      "createOption": "string",
-      "galleryImageReference": {
-        "communityGalleryImageId": "string",
-        "id": "string",
-        "lun": "int",
-        "sharedGalleryImageId": "string"
-      },
-      "imageReference": {
-        "communityGalleryImageId": "string",
-        "id": "string",
-        "lun": "int",
-        "sharedGalleryImageId": "string"
-      },
-      "logicalSectorSize": "int",
-      "securityDataUri": "string",
-      "sourceResourceId": "string",
-      "sourceUri": "string",
-      "storageAccountId": "string",
-      "uploadSizeBytes": "int"
-    },
-    "dataAccessAuthMode": "string",
-    "diskAccessId": "string",
-    "diskIOPSReadWrite": "int",
-    "diskMBpsReadWrite": "int",
-    "diskSizeGB": "int",
-    "encryption": {
-      "diskEncryptionSetId": "string",
+{ 
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "location": {
       "type": "string"
     },
-    "encryptionSettingsCollection": {
-      "enabled": "bool",
-      "encryptionSettings": [
-        {
-          "diskEncryptionKey": {
-            "secretUrl": "string",
-            "sourceVault": {
-              "id": "string"
-            }
-          },
-          "keyEncryptionKey": {
-            "keyUrl": "string",
-            "sourceVault": {
-              "id": "string"
-            }
-          }
-        }
-      ],
-      "encryptionSettingsVersion": "string"
+    "dataDiskName": {
+      "type": "string",
+      "defaultValue": "mySharedDisk"
     },
-    "hyperVGeneration": "string",
-    "maxShares": "int",
-    "networkAccessPolicy": "string",
-    "osType": "string",
-    "publicNetworkAccess": "string",
-    "purchasePlan": {
-      "name": "string",
-      "product": "string",
-      "promotionCode": "string",
-      "publisher": "string"
+    "dataDiskSizeGB": {
+      "type": "int",
+      "defaultValue": 1024
     },
-    "securityProfile": {
-      "secureVMDiskEncryptionSetId": "string",
-      "securityType": "string"
-    },
-    "supportedCapabilities": {
-      "acceleratedNetwork": "bool",
-      "architecture": "string"
-    },
-    "supportsHibernation": "bool",
-    "tier": "string"
+    "maxShares": {
+      "type": "int",
+      "defaultValue": 2
+    }
   },
-  "zones": [ "string" ]
+  "resources": [
+    {
+      "type": "Microsoft.Compute/disks",
+      "name": "[parameters('dataDiskName')]",
+      "location": "[parameters('location')]",
+      "apiVersion": "2019-07-01",
+      "sku": {
+        "name": "StandardSSD_LRS"
+      },
+      "properties": {
+        "creationData": {
+          "createOption": "Empty"
+        },
+        "diskSizeGB": "[parameters('dataDiskSizeGB')]",
+        "maxShares": "[parameters('maxShares')]"
+      }
+    }
+  ],
+  "outputs": {
+    "diskId": {
+       "type": "string",
+       "value": "[resourceId('Microsoft.Compute/disks', parameters('dataDiskName'))]"
+    }
+ }
 }
