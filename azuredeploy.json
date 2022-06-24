@@ -118,7 +118,7 @@
     {
       "type": "Microsoft.Resources/deployments",
       "apiVersion": "2020-10-01",
-      "name": "shareddisk",
+      "name": "sharedDisk",
       "properties": {
         "mode": "Incremental",
         "templateLink": {
@@ -232,6 +232,9 @@
           },
           "vnetid": {
             "value": "[reference('vnetTemplate').outputs.vnetid.value]"
+          },
+          "diskId": {
+            "value": "[reference('sharedDisk').outputs.diskId.value]"
           }
         }
       }
