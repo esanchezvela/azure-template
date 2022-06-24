@@ -158,7 +158,17 @@
                         "offer"    : "[parameters('offer')]",
                         "sku"      : "[parameters('sku')]",
                         "version"  : "[parameters('version')]"
-                    }
+                    },
+                    "dataDisks": [
+                        { 
+                            "createOption": "Attach",
+                            "deleteOption": "Detach",
+                            "lun":        0,
+                            "vhd":    {
+                                "uri": "[parameters('DiskId')]"
+                            }
+                        }
+                    ]
                 },
                 "networkProfile": {
                     "networkInterfaces": [

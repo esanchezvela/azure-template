@@ -23,7 +23,7 @@
       "type": "Microsoft.Compute/disks",
       "name": "[parameters('dataDiskName')]",
       "location": "[parameters('location')]",
-      "apiVersion": "2019-07-01",
+      "apiVersion": "2018-06-01",
       "sku": {
         "name": "StandardSSD_LRS"
       },
