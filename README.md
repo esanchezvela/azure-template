@@ -1,1 +1,1 @@
-# myaure-templates
+# azure-templates
