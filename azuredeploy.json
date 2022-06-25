@@ -67,6 +67,9 @@
           "description": "Admin username for VM"
       }
     },
+    "adminPasswordOrKey": {
+      "type": "string"
+    },
     "vmSize": {
         "type": "string",
         "defaultValue": "Standard_D2s_v3",
@@ -225,12 +228,7 @@
             "value": "[parameters('adminUsername')]"
           },
           "adminPasswordOrKey": {
-            "reference": {
-               "keyVault": {
-                  "id": "[parameters('vaultId')]"
-               },
-               "secretName": "publickey"
-            }
+            "value": "[parameters('adminPasswordOrKey')]"
           },
           "vmSize": {
             "value": "Standard_D2s_v4"
