@@ -216,7 +216,7 @@
           },
           "offer": {
             "value": "[parameters('offer')]"
-          },
+          }, 
           "sku": {
             "value": "[parameters('sku')]"
           },
