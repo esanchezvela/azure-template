@@ -16,18 +16,21 @@
     },
     "publisher": {
         "type": "string",
+        "defaultValue": "SuSE",
         "metadata": {
             "description": "Image Publisher."
         }
     },
     "offer": {
         "type": "string",
+        "defaultValue": "sles-sap-15-sp3",
         "metadata": {
             "description": "Image offer."
         }
     },
     "sku"      : {
         "type": "string",
+        "defaultValue": "gen2",
         "metadata": {
             "description": "Image sku."
         }
@@ -41,6 +44,7 @@
     },
     "location": {
         "type": "string",
+        "defaultValue": "eastus",
         "metadata": {
             "description": "Location for all resources."
         }
@@ -58,6 +62,7 @@
     },
     "adminUsername": {
       "type": "string",
+      "defaultValue": "azureuser",
       "metadata": {
           "description": "Admin username for VM"
       }
