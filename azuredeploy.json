@@ -94,7 +94,7 @@
       "properties": {
         "mode": "Incremental",
         "templateLink": {
-           "relativePath": "artifacts/storage_template.json"
+           "uri": "https://raw.githubusercontent.com/esanchezvela/azure-template/main/artifacts/storage_template.json"
         },
         "parameters": {
           "location": {
@@ -113,7 +113,7 @@
       "properties": {
         "mode": "Incremental",
         "templateLink": {
-           "relativePath": "artifacts/nsg.json"
+           "uri": "https://raw.githubusercontent.com/esanchezvela/azure-template/main/artifacts/nsg.json"
         },
         "parameters": {
           "location": {
@@ -132,7 +132,7 @@
       "properties": {
         "mode": "Incremental",
         "templateLink": {
-           "relativePath": "artifacts/disks.json"
+           "uri": "https://raw.githubusercontent.com/esanchezvela/azure-template/main/artifacts/disks.json"
         },
         "parameters": {
            "location": {
@@ -160,7 +160,7 @@
       "properties": {
         "mode": "Incremental",
         "templateLink": {
-           "relativePath": "artifacts/vnet.json"
+           "uri": "https://raw.githubusercontent.com/esanchezvela/azure-template/main/artifacts/vnet.json"
         },
         "parameters": {
           "vnetname": {
@@ -182,7 +182,7 @@
       "properties": {
         "mode": "Incremental",
         "templateLink": {
-           "relativePath": "artifacts/availabilityset.json"
+           "uri": "https://raw.githubusercontent.com/esanchezvela/azure-template/main/artifacts/availabilityset.json"
         },
         "parameters": {
           "location": {
@@ -205,7 +205,7 @@
       "properties": {
         "mode": "Incremental",
 	      "templateLink": {
-           "relativePath": "artifacts/vms.json"
+           "uri": "https://raw.githubusercontent.com/esanchezvela/azure-template/main/artifacts/vms.json"
         },
         "parameters": {
           "numberOfInstances": {
