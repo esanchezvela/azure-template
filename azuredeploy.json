@@ -76,15 +76,7 @@
     }
   },
   "variables": {
-      "storageName": "[concat('esv', uniqueString(resourceGroup().id))]",
-      "adminPasswordOrKey": {
-        "reference": {
-           "keyVault": {
-              "id": "[parameters('vaultId')]"
-           },
-           "secretName": "publickey"
-        }
-      }
+      "storageName": "[concat('esv', uniqueString(resourceGroup().id))]"
   },
   "resources": [
     {
@@ -233,7 +225,12 @@
             "value": "[parameters('adminUsername')]"
           },
           "adminPasswordOrKey": {
-             "value": "[parameters('adminPasswordOrKey')]"
+            "reference": {
+               "keyVault": {
+                  "id": "[parameters('vaultId')]"
+               },
+               "secretName": "publickey"
+            }
           },
           "vmSize": {
             "value": "Standard_D2s_v4"
