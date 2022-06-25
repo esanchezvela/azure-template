@@ -223,7 +223,7 @@
             "value": "[parameters('adminUsername')]"
           },
           "adminPasswordOrKey": {
-             "value": "parameters['adminPasswordOrKey']"
+             "value": "[parameters['adminPasswordOrKey']"
           },
           "vmSize": {
             "value": "Standard_D2s_v4"
