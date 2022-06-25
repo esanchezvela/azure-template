@@ -89,6 +89,12 @@
             "metadata": {
                 "description": "Resource Id of managed disk"
             }
+        },
+        "bootDiagId": {
+            "type": "string",
+            "metadata": {
+                "description": "Resource Id of managed disk"
+            }
         }
     },
     "variables": {
@@ -178,6 +184,12 @@
                             "id": "[resourceId('Microsoft.Network/networkInterfaces', concat('nic', copyindex()))]"
                         }
                     ]
+                },
+                "diagnosticsProfile": {
+                    "bootDiagnostics": {
+                      "enabled": true,
+                      "storageUri": "[parameters('bootDiagId')]"
+                    }
                 }
             }
         }

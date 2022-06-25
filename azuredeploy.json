@@ -236,6 +236,9 @@
           },
           "diskId": {
             "value": "[reference('sharedDisk').outputs.diskId.value]"
+          },
+          "bootDiagId": {
+            "value": "[reference('storageResource').output.storageId.value]"
           }
         }
       }
