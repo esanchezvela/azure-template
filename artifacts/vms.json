@@ -170,8 +170,8 @@
                             "createOption": "Attach",
                             "deleteOption": "Detach",
                             "lun":        0,
-                            "vhd":    {
-                                "uri": "[parameters('diskId')]"
+                            "managedDisk":    {
+                                "id": "[parameters('diskId')]"
                             }
                         }
                     ]
