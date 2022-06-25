@@ -2,6 +2,9 @@
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.1",
   "parameters": {
+    "vaultId": {
+	"type": "string"
+    },
     "numberOfInstances": {
         "type": "int",
         "defaultValue": 1,
@@ -59,12 +62,6 @@
           "description": "Admin username for VM"
       }
     },
-    "adminPasswordOrKey": {
-        "type": "string",
-        "metadata": {
-            "description": "SSH Key or password for the Virtual Machine. SSH key is recommended."
-        }
-    },
     "vmSize": {
         "type": "string",
         "defaultValue": "Standard_D2s_v3",
@@ -74,7 +71,15 @@
     }
   },
   "variables": {
-      "storageName": "[concat('esv', uniqueString(resourceGroup().id))]"
+      "storageName": "[concat('esv', uniqueString(resourceGroup().id))]",
+      "adminPasswordOrKey": {
+        "reference": {
+           "keyVault": {
+              "id": "[parameters('vaultId')]"
+           },
+           "secretName": "publickey"
+        }
+      }
   },
   "resources": [
     {

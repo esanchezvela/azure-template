@@ -20,6 +20,8 @@ jobs:
                             subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
                             resourceGroupName: ${{ secrets.AZURE_RG }}
                             template: ./azuredeploy.json
+                            parameters: 
+                                     vaultId=/subscriptions/${{ secrets.AZURE_SUBSCRIPTION }}/resourceGroups/azureuser/providers/Microsoft.KeyVault/vaults/esvvault
 
                           # output containerName variable from template
                         - run: echo ${{ steps.deploy.outputs.containerName }}
