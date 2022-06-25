@@ -83,6 +83,12 @@
             "metadata": {
                 "description": "VNETID of managing VM"
             }
+        },
+        "diskId": {
+            "type": "string",
+            "metadata": {
+                "description": "Resource Id of managed disk"
+            }
         }
     },
     "variables": {
