@@ -90,10 +90,10 @@
                 "description": "Resource Id of managed disk"
             }
         },
-        "bootDiagId": {
+        "stgName": {
             "type": "string",
             "metadata": {
-                "description": "Resource Id of managed disk"
+                "description": "Storage name boot diagnostics"
             }
         }
     },
@@ -188,7 +188,7 @@
                 "diagnosticsProfile": {
                     "bootDiagnostics": {
                       "enabled": true,
-                      "storageUri": "[parameters('bootDiagId')]"
+                      "storageUri": "[[concat('https://', parameters('stgName'), '.blob.core.windows.net')]"
                     }
                 }
             }
