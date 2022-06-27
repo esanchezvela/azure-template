@@ -36,7 +36,8 @@
     }
   ],
   "outputs": {
-    "type": "string",
-    "value": "[reference(parameters('storageAccountName'))]"
+    "storageId": {     
+      "type": "string",
+      "value": "[reference(parameters('storageAccountName'))]"
   }
 }
