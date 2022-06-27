@@ -120,11 +120,11 @@
     {
       "type": "Microsoft.Resources/deployments",
       "apiVersion": "2020-10-01",
-      "name": "sbddDisk",
+      "name": "sbdDisk",
       "properties": {
         "mode": "Incremental",
         "templateLink": {
-           "uri": "https://raw.githubusercontent.com/esanchezvela/azure-template/main/artifacts/disks.json"
+           "uri": "https://raw.githubusercontent.com/esanchezvela/azure-template/main/artifacts/shareddisk.json"
         },
         "parameters": {
            "location": {
@@ -237,7 +237,7 @@
             "value": "[reference('vnetTemplate').outputs.vnetid.value]"
           },
           "diskId": {
-            "value": "[reference('sharedDisk').outputs.diskId.value]"
+            "value": "[reference('sbdDisk').outputs.diskId.value]"
           },
           "stgName": {
             "value": "[variables('storageName')]"
