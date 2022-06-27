@@ -120,7 +120,7 @@
     {
       "type": "Microsoft.Resources/deployments",
       "apiVersion": "2020-10-01",
-      "name": "sharedDisk",
+      "name": "sbddDisk",
       "properties": {
         "mode": "Incremental",
         "templateLink": {
@@ -134,7 +134,7 @@
               "value": "shareddisk"
            },
            "dataDiskSizeGB": {
-              "value": 32
+              "value": 4
            },
            "maxShares": {
               "value": 2

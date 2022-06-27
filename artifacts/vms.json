@@ -141,7 +141,7 @@
         "type": "array",
         "copy": {
             "count": "[parameters('numberOfInstances')]",
-            "input": "[resourceId('Microsoft.Network/networkInterfaces', concat('nic', copyindex()))]"
+            "input": "[reference(concat('nic', copyindex()))]"
         }
         
       }
