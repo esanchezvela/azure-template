@@ -193,5 +193,16 @@
                 }
             }
         }
-    ]
+    ],
+    "outputs": {
+      "privateIps": {
+        "type": "array",
+        "copy": {
+            "count": "[parameters('numberOfInstances')]"
+            "input": "[resourceId('Microsoft.Network/networkInterfaces', concat('nic', copyindex()))]"
+        }
+        
+      }
+    
+    }
 }
