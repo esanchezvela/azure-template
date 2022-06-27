@@ -134,71 +134,13 @@
                     }
                 ]
             }
-        },
-        {
-            "type": "Microsoft.Compute/virtualMachines",
-            "name": "[concat('myvm', copyIndex())]",
-            "apiVersion": "2022-03-01",
-            "location": "[parameters('location')]",
-            "copy": {
-                "name": "virtualMachineLoop",
-                "count": "[parameters('numberOfInstances')]"
-            },
-            "dependsOn": [
-                "[resourceId('Microsoft.Network/networkInterfaces', concat('nic', copyIndex()))]"
-             ],
-            "properties": {
-                "availabilitySet": {
-                    "id": "[parameters('avsetId')]"
-                },
-                "hardwareProfile": {
-                    "vmSize": "[parameters('vmSize')]"
-                },
-                "osProfile": {
-                    "computerName": "[concat('vm', copyIndex())]",
-                    "adminUsername": "[parameters('adminUsername')]",
-                    "adminPassword":      "[if(equals(parameters('authenticationType'), 'password'), parameters('adminPasswordOrKey'), json('null'))]",
-                    "linuxConfiguration": "[if(equals(parameters('authenticationType'), 'password'), json('null'), variables('linuxConfiguration'))]"
-                },
-                "storageProfile": {
-                    "imageReference": {
-                        "publisher": "[parameters('publisher')]",
-                        "offer"    : "[parameters('offer')]",
-                        "sku"      : "[parameters('sku')]",
-                        "version"  : "[parameters('version')]"
-                    },
-                    "dataDisks": [
-                        { 
-                            "createOption": "Attach",
-                            "deleteOption": "Detach",
-                            "lun":        0,
-                            "managedDisk":    {
-                                "id": "[parameters('diskId')]"
-                            }
-                        }
-                    ]
-                },
-                "networkProfile": {
-                    "networkInterfaces": [
-                        {
-                            "id": "[resourceId('Microsoft.Network/networkInterfaces', concat('nic', copyindex()))]"
-                        }
-                    ]
-                },
-                "diagnosticsProfile": {
-                    "bootDiagnostics": {
-                      "enabled": true,
-                      "storageUri": "[concat('https://', parameters('stgName'), '.blob.core.windows.net')]"
-                    }
-                }
-            }
         }
     ],
     "outputs": {
       "privateIps": {
         "type": "array",
         "copy": {
-            "count": "[parameters('numberOfInstances')]"
+            "count": "[parameters('numberOfInstances')]",
             "input": "[resourceId('Microsoft.Network/networkInterfaces', concat('nic', copyindex()))]"
         }
         
