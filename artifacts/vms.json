@@ -141,7 +141,7 @@
         "type": "array",
         "copy": {
             "count": "[parameters('numberOfInstances')]",
-            "input": "[reference(concat('nic', copyindex())).ipConfigurations]"
+            "input": "[reference(concat('nic', copyindex())).ipConfigurations[0].properties.privateIPAddress]"
         }
         
       }
