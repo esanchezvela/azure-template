@@ -34,11 +34,5 @@
         }
       }
     }
-  ],
-  "outputs": {
-    "storageId": {     
-      "type": "object",
-      "value": "[reference(parameters('storageAccountName'))]"
-    }
-  }
+  ]
 }
